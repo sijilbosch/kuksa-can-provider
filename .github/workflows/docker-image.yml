@@ -11,7 +11,7 @@
 # * SPDX-License-Identifier: Apache-2.0
 # ********************************************************************************/
 
-name: kuksa_can_provider
+name: docker-image-build
 
 on:
   push:
