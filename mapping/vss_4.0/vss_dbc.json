@@ -1,103 +1,535 @@
 {
   "Vehicle": {
-    "children": {
-      "Body": {
-        "children": {
-          "BodyType": {
-            "datatype": "string",
-            "description": "Body type code as defined by ISO 3779.",
-            "type": "attribute"
-          },
-          "Trunk": {
-            "children": {
-              "Front": {
-                "children": {
-                  "IsLightOn": {
-                    "comment": "V4.0 Moved from Vehicle.Cabin.Lights.IsTrunkOn because Trunk is not defined as part of the Cabin.",
-                    "datatype": "boolean",
-                    "description": "Is trunk light on",
-                    "type": "actuator"
+      "children": {
+          "Immobilizer": {
+              "children": {
+                  "Config": {
+                      "datatype": "string",
+                      "description": "Current Immobilizer config (how the In-/Outputs are logically connected)",
+                      "type": "attribute"
                   },
-                  "IsLocked": {
-                    "datatype": "boolean",
-                    "description": "Is trunk locked or unlocked. True = Locked. False = Unlocked.",
-                    "type": "actuator"
+                  "Inhibitor": {
+                      "children": {
+                          "InhibitorType0": {
+                              "children": {
+                                  "Group": {
+                                      "datatype": "string",
+                                      "description": "Group of the Inhibitor system",
+                                      "type": "attribute"
+                                  },
+                                  "Name": {
+                                      "datatype": "string",
+                                      "description": "Name of the Inhibitor system",
+                                      "type": "attribute"
+                                  },
+                                  "UnlockState": {
+                                      "datatype": "string",
+                                      "default": "Default",
+                                      "description": "State of inhibitor system. (Default, Release, Inhibit, Others)",
+                                      "type": "actuator",
+                                      "vss2dbc": {
+                                        "signal": "InhibitorType0_UnlockState",
+                                        "transform": {
+                                        "mapping": [
+                                          {
+                                          "from": "Default",
+                                          "to": "Default"
+                                          },
+                                          {
+                                          "from": "Release",
+                                          "to": "Release"
+                                          },
+                                          {
+                                          "from": "Inhibit",
+                                          "to": "Inhibit"
+                                          },
+                                          {
+                                            "from": "Others",
+                                            "to": "Others"
+                                          }
+                                        ]
+                                        }
+                                    }
+                                  }
+                              },
+                              "description": "The key Inhibitor.",
+                              "type": "branch"
+                          },
+                          "InhibitorType1": {
+                              "children": {
+                                  "Group": {
+                                      "datatype": "string",
+                                      "description": "Group of the Inhibitor system",
+                                      "type": "attribute"
+                                  },
+                                  "Name": {
+                                      "datatype": "string",
+                                      "description": "Name of the Inhibitor system",
+                                      "type": "attribute"
+                                  },
+                                  "UnlockState": {
+                                      "datatype": "string",
+                                      "default": "Default",
+                                      "description": "State of inhibitor system. (Default, Release, Inhibit, Others)",
+                                      "type": "actuator",
+                                      "vss2dbc": {
+                                          "signal": "InhibitorType1_UnlockState",
+                                          "transform": {
+                                          "mapping": [
+                                            {
+                                            "from": "Default",
+                                            "to": "Default"
+                                            },
+                                            {
+                                            "from": "Release",
+                                            "to": "Release"
+                                            },
+                                            {
+                                            "from": "Inhibit",
+                                            "to": "Inhibit"
+                                            },
+                                            {
+                                              "from": "Others",
+                                              "to": "Others"
+                                            }
+                                          ]
+                                          }
+                                      }
+                                  }
+                              },
+                              "description": "The key Inhibitor.",
+                              "type": "branch"
+                          },
+                          "InhibitorType2": {
+                              "children": {
+                                  "Group": {
+                                      "datatype": "string",
+                                      "description": "Group of the Inhibitor system",
+                                      "type": "attribute"
+                                  },
+                                  "Name": {
+                                      "datatype": "string",
+                                      "description": "Name of the Inhibitor system",
+                                      "type": "attribute"
+                                  },
+                                  "UnlockState": {
+                                      "datatype": "string",
+                                      "default": "Default",
+                                      "description": "State of inhibitor system. (Default, Release, Inhibit, Others)",
+                                      "type": "actuator",
+                                      "vss2dbc": {
+                                        "signal": "InhibitorType2_UnlockState",
+                                        "transform": {
+                                        "mapping": [
+                                          {
+                                          "from": "Default",
+                                          "to": "Default"
+                                          },
+                                          {
+                                          "from": "Release",
+                                          "to": "Release"
+                                          },
+                                          {
+                                          "from": "Inhibit",
+                                          "to": "Inhibit"
+                                          },
+                                          {
+                                            "from": "Others",
+                                            "to": "Others"
+                                          }
+                                        ]
+                                        }
+                                    }
+                                  }
+                              },
+                              "description": "The key Inhibitor.",
+                              "type": "branch"
+                          },
+                          "InhibitorType3": {
+                              "children": {
+                                  "Group": {
+                                      "datatype": "string",
+                                      "description": "Group of the Inhibitor system",
+                                      "type": "attribute"
+                                  },
+                                  "Name": {
+                                      "datatype": "string",
+                                      "description": "Name of the Inhibitor system",
+                                      "type": "attribute"
+                                  },
+                                  "UnlockState": {
+                                      "datatype": "string",
+                                      "default": "Default",
+                                      "description": "State of inhibitor system. (Default, Release, Inhibit, Others)",
+                                      "type": "actuator",
+                                      "vss2dbc": {
+                                        "signal": "InhibitorType3_UnlockState",
+                                        "transform": {
+                                        "mapping": [
+                                          {
+                                          "from": "Default",
+                                          "to": "Default"
+                                          },
+                                          {
+                                          "from": "Release",
+                                          "to": "Release"
+                                          },
+                                          {
+                                          "from": "Inhibit",
+                                          "to": "Inhibit"
+                                          },
+                                          {
+                                            "from": "Others",
+                                            "to": "Others"
+                                          }
+                                        ]
+                                        }
+                                    }
+                                  }
+                              },
+                              "description": "The key Inhibitor.",
+                              "type": "branch"
+                          },
+                          "InhibitorType4": {
+                              "children": {
+                                  "Group": {
+                                      "datatype": "string",
+                                      "description": "Group of the Inhibitor system",
+                                      "type": "attribute"
+                                  },
+                                  "Name": {
+                                      "datatype": "string",
+                                      "description": "Name of the Inhibitor system",
+                                      "type": "attribute"
+                                  },
+                                  "UnlockState": {
+                                      "datatype": "string",
+                                      "default": "Default",
+                                      "description": "State of inhibitor system. (Default, Release, Inhibit, Others)",
+                                      "type": "actuator",
+                                      "vss2dbc": {
+                                        "signal": "InhibitorType4_UnlockState",
+                                        "transform": {
+                                        "mapping": [
+                                          {
+                                          "from": "Default",
+                                          "to": "Default"
+                                          },
+                                          {
+                                          "from": "Release",
+                                          "to": "Release"
+                                          },
+                                          {
+                                          "from": "Inhibit",
+                                          "to": "Inhibit"
+                                          },
+                                          {
+                                            "from": "Others",
+                                            "to": "Others"
+                                          }
+                                        ]
+                                        }
+                                    }
+                                  }
+                              },
+                              "description": "The key Inhibitor.",
+                              "type": "branch"
+                          },
+                          "InhibitorType5": {
+                              "children": {
+                                  "Group": {
+                                      "datatype": "string",
+                                      "description": "Group of the Inhibitor system",
+                                      "type": "attribute"
+                                  },
+                                  "Name": {
+                                      "datatype": "string",
+                                      "description": "Name of the Inhibitor system",
+                                      "type": "attribute"
+                                  },
+                                  "UnlockState": {
+                                      "datatype": "string",
+                                      "default": "Default",
+                                      "description": "State of inhibitor system. (Default, Release, Inhibit, Others)",
+                                      "type": "actuator"
+                                  }
+                              },
+                              "description": "The key Inhibitor.",
+                              "type": "branch"
+                          }
+                      },
+                      "description": "The key Inhibitor.",
+                      "type": "branch"
                   },
-                  "IsOpen": {
-                    "datatype": "boolean",
-                    "description": "Trunk open or closed. True = Open. False = Closed.",
-                    "type": "actuator"
+                  "KeySystems": {
+                      "children": {
+                          "Key0": {
+                              "children": {
+                                  "Group": {
+                                      "datatype": "string",
+                                      "description": "Group of the key system",
+                                      "type": "attribute"
+                                  },
+                                  "Name": {
+                                      "datatype": "string",
+                                      "description": "Name of the key system",
+                                      "type": "attribute"
+                                  },
+                                  "PermissionState": {
+                                      "datatype": "string",
+                                      "dbc2vss": {
+                                        "interval_ms": 1000,
+                                        "signal": "Key0_PermissionState",
+                                        "transform": {
+                                          "mapping": [
+                                            {
+                                            "from": "Default",
+                                            "to": "Default"
+                                            },
+                                            {
+                                            "from": "Release",
+                                            "to": "Release"
+                                            },
+                                            {
+                                            "from": "Inhibit",
+                                            "to": "Inhibit"
+                                            },
+                                            {
+                                              "from": "Others",
+                                              "to": "Others"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "default": "Default",
+                                      "description": "State of the key system. (Default, Release, Inhibit, Others)",
+                                      "type": "sensor"
+                                  }
+                              },
+                              "description": "The keysystem of the vehicle.",
+                              "type": "branch"
+                          },
+                          "Key1": {
+                              "children": {
+                                  "Group": {
+                                      "datatype": "string",
+                                      "description": "Group of the key system",
+                                      "type": "attribute"
+                                  },
+                                  "Name": {
+                                      "datatype": "string",
+                                      "description": "Name of the key system",
+                                      "type": "attribute"
+                                  },
+                                  "PermissionState": {
+                                      "datatype": "string",
+                                      "dbc2vss": {
+                                        "interval_ms": 1000,
+                                        "signal": "Key1_PermissionState",
+                                        "transform": {
+                                          "mapping": [
+                                            {
+                                            "from": "Default",
+                                            "to": "Default"
+                                            },
+                                            {
+                                            "from": "Release",
+                                            "to": "Release"
+                                            },
+                                            {
+                                            "from": "Inhibit",
+                                            "to": "Inhibit"
+                                            },
+                                            {
+                                              "from": "Others",
+                                              "to": "Others"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "default": "Default",
+                                      "description": "State of the key system. (Default, Release, Inhibit, Others)",
+                                      "type": "sensor"
+                                  }
+                              },
+                              "description": "The keysystem of the vehicle.",
+                              "type": "branch"
+                          },
+                          "Key2": {
+                              "children": {
+                                  "Group": {
+                                      "datatype": "string",
+                                      "description": "Group of the key system",
+                                      "type": "attribute"
+                                  },
+                                  "Name": {
+                                      "datatype": "string",
+                                      "description": "Name of the key system",
+                                      "type": "attribute"
+                                  },
+                                  "PermissionState": {
+                                      "datatype": "string",
+                                      "dbc2vss": {
+                                        "interval_ms": 1000,
+                                        "signal": "Key2_PermissionState",
+                                        "transform": {
+                                          "mapping": [
+                                            {
+                                            "from": "Default",
+                                            "to": "Default"
+                                            },
+                                            {
+                                            "from": "Release",
+                                            "to": "Release"
+                                            },
+                                            {
+                                            "from": "Inhibit",
+                                            "to": "Inhibit"
+                                            },
+                                            {
+                                              "from": "Others",
+                                              "to": "Others"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "default": "Default",
+                                      "description": "State of the key system. (Default, Release, Inhibit, Others)",
+                                      "type": "sensor"
+                                  }
+                              },
+                              "description": "The keysystem of the vehicle.",
+                              "type": "branch"
+                          },
+                          "Key3": {
+                              "children": {
+                                  "Group": {
+                                      "datatype": "string",
+                                      "description": "Group of the key system",
+                                      "type": "attribute"
+                                  },
+                                  "Name": {
+                                      "datatype": "string",
+                                      "description": "Name of the key system",
+                                      "type": "attribute"
+                                  },
+                                  "PermissionState": {
+                                      "datatype": "string",
+                                      "dbc2vss": {
+                                        "interval_ms": 1000,
+                                        "signal": "Key3_PermissionState",
+                                        "transform": {
+                                          "mapping": [
+                                            {
+                                            "from": "Default",
+                                            "to": "Default"
+                                            },
+                                            {
+                                            "from": "Release",
+                                            "to": "Release"
+                                            },
+                                            {
+                                            "from": "Inhibit",
+                                            "to": "Inhibit"
+                                            },
+                                            {
+                                              "from": "Others",
+                                              "to": "Others"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "default": "Default",
+                                      "description": "State of the key system. (Default, Release, Inhibit, Others)",
+                                      "type": "sensor"
+                                  }
+                              },
+                              "description": "The keysystem of the vehicle.",
+                              "type": "branch"
+                          },
+                          "Key4": {
+                              "children": {
+                                  "Group": {
+                                      "datatype": "string",
+                                      "description": "Group of the key system",
+                                      "type": "attribute"
+                                  },
+                                  "Name": {
+                                      "datatype": "string",
+                                      "description": "Name of the key system",
+                                      "type": "attribute"
+                                  },
+                                  "PermissionState": {
+                                      "datatype": "string",
+                                      "dbc2vss": {
+                                        "interval_ms": 1000,
+                                        "signal": "Key4_PermissionState",
+                                        "transform": {
+                                          "mapping": [
+                                            {
+                                            "from": "Default",
+                                            "to": "Default"
+                                            },
+                                            {
+                                            "from": "Release",
+                                            "to": "Release"
+                                            },
+                                            {
+                                            "from": "Inhibit",
+                                            "to": "Inhibit"
+                                            },
+                                            {
+                                              "from": "Others",
+                                              "to": "Others"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "default": "Default",
+                                      "description": "State of the key system. (Default, Release, Inhibit, Others)",
+                                      "type": "sensor"
+                                  }
+                              },
+                              "description": "The keysystem of the vehicle.",
+                              "type": "branch"
+                          },
+                          "Key5": {
+                              "children": {
+                                  "Group": {
+                                      "datatype": "string",
+                                      "description": "Group of the key system",
+                                      "type": "attribute"
+                                  },
+                                  "Name": {
+                                      "datatype": "string",
+                                      "description": "Name of the key system",
+                                      "type": "attribute"
+                                  },
+                                  "PermissionState": {
+                                      "datatype": "string",
+                                      "default": "Default",
+                                      "description": "State of the key system. (Default, Release, Inhibit, Others)",
+                                      "type": "sensor"
+                                  }
+                              },
+                              "description": "The keysystem of the vehicle.",
+                              "type": "branch"
+                          }
+                      },
+                      "description": "The keysystem of the vehicle.",
+                      "type": "branch"
+                  },
+                  "Reset": {
+                      "datatype": "boolean",
+                      "description": "If true, resets the Immobilizer System to Default state",
+                      "type": "actuator"
                   }
-                },
-                "comment": "A trunk is a luggage compartment in a vehicle. Depending on vehicle, it can be either in the front or back of the vehicle. Some vehicles may have trunks both at the front and at the rear of the vehicle.",
-                "description": "Trunk status.",
-                "type": "branch"
               },
-              "Rear": {
-                "children": {
-                  "IsLightOn": {
-                    "comment": "V4.0 Moved from Vehicle.Cabin.Lights.IsTrunkOn because Trunk is not defined as part of the Cabin.",
-                    "datatype": "boolean",
-                    "description": "Is trunk light on",
-                    "type": "actuator"
-                  },
-                  "IsLocked": {
-                    "datatype": "boolean",
-                    "description": "Is trunk locked or unlocked. True = Locked. False = Unlocked.",
-                    "type": "actuator"
-                  },
-                  "IsOpen": {
-                    "datatype": "boolean",
-                    "dbc2vss": {
-                      "interval_ms": 1000,
-                      "signal": "Signal_B_brems",
-                      "transform": {
-                        "mapping": [
-                          {
-                            "from": "TRUE",
-                            "to": true
-                          },
-                          {
-                            "from": "FALSE",
-                            "to": false
-                          }
-                        ]
-                      }
-                    },
-                    "description": "Trunk open or closed. True = Open. False = Closed.",
-                    "type": "actuator",
-                    "vss2dbc": {
-                      "signal": "Signal_B_brems",
-                      "transform": {
-                        "mapping": [
-                          {
-                            "from": true,
-                            "to": "TRUE"
-                          },
-                          {
-                            "from": false,
-                            "to": "FALSE"
-                          }
-                        ]
-                      }
-                    }
-                  }
-                },
-                "comment": "A trunk is a luggage compartment in a vehicle. Depending on vehicle, it can be either in the front or back of the vehicle. Some vehicles may have trunks both at the front and at the rear of the vehicle.",
-                "description": "Trunk status.",
-                "type": "branch"
-              }
-            },
-            "comment": "A trunk is a luggage compartment in a vehicle. Depending on vehicle, it can be either in the front or back of the vehicle. Some vehicles may have trunks both at the front and at the rear of the vehicle.",
-            "description": "Trunk status.",
-            "type": "branch"
+              "description": "Immobilizer data.",
+              "type": "branch"
           }
-        },
-        "description": "All body components.",
-        "type": "branch"
-      }
-    },
-    "description": "High-level vehicle data.",
-    "type": "branch"
+      },
+      "description": "High-level vehicle data.",
+      "type": "branch"
   }
 }

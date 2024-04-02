@@ -1,0 +1,71 @@
+VERSION ""
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_: CCU Immobilizer
+VAL_TABLE_ InhibitorUnlockState 3 "Others" 2 "Inhibit" 1 "Release" 0 "Default" ;
+VAL_TABLE_ KeyPermissionState 3 "Others" 2 "Inhibit" 1 "Release" 0 "Default" ;
+
+
+BO_ 305 Immo_Inhibitor: 8 CCU
+ SG_ InhibitorType4_UnlockState : 8|2@1+ (1,0) [0|0] ""  Immobilizer
+ SG_ InhibitorType3_UnlockState : 6|2@1+ (1,0) [0|0] ""  Immobilizer
+ SG_ InhibitorType2_UnlockState : 4|2@1+ (1,0) [0|0] ""  Immobilizer
+ SG_ InhibitorType1_UnlockState : 2|2@1+ (1,0) [0|0] ""  Immobilizer
+ SG_ InhibitorType0_UnlockState : 0|2@1+ (1,0) [0|0] ""  Immobilizer
+
+BO_ 304 Immo_Keys: 8 Immobilizer
+ SG_ Key4_PermissionState : 8|2@1+ (1,0) [0|0] ""  CCU
+ SG_ Key3_PermissionState : 6|2@1+ (1,0) [0|0] ""  CCU
+ SG_ Key2_PermissionState : 4|2@1+ (1,0) [0|0] ""  CCU
+ SG_ Key1_PermissionState : 2|2@1+ (1,0) [0|0] ""  CCU
+ SG_ Key0_PermissionState : 0|2@1+ (1,0) [0|0] ""  CCU
+
+
+
+BA_DEF_  "MultiplexExtEnabled" ENUM  "No","Yes";
+BA_DEF_  "BusType" STRING ;
+BA_DEF_DEF_  "MultiplexExtEnabled" "No";
+BA_DEF_DEF_  "BusType" "CAN";
+VAL_ 305 InhibitorType4_UnlockState 3 "Others" 2 "Inhibit" 1 "Release" 0 "Default" ;
+VAL_ 305 InhibitorType3_UnlockState 3 "Others" 2 "Inhibit" 1 "Release" 0 "Default" ;
+VAL_ 305 InhibitorType2_UnlockState 3 "Others" 2 "Inhibit" 1 "Release" 0 "Default" ;
+VAL_ 305 InhibitorType1_UnlockState 3 "Others" 2 "Inhibit" 1 "Release" 0 "Default" ;
+VAL_ 305 InhibitorType0_UnlockState 3 "Others" 2 "Inhibit" 1 "Release" 0 "Default" ;
+VAL_ 304 Key4_PermissionState 3 "Others" 2 "Inhibit" 1 "Release" 0 "Default" ;
+VAL_ 304 Key3_PermissionState 3 "Others" 2 "Inhibit" 1 "Release" 0 "Default" ;
+VAL_ 304 Key2_PermissionState 3 "Others" 2 "Inhibit" 1 "Release" 0 "Default" ;
+VAL_ 304 Key1_PermissionState 3 "Others" 2 "Inhibit" 1 "Release" 0 "Default" ;
+VAL_ 304 Key0_PermissionState 3 "Others" 2 "Inhibit" 1 "Release" 0 "Default" ;
+

@@ -1,8 +1,7 @@
 {
-  "Cruise_control_Rx_RC" : 0,
-  "Signal_wped" : 0,
-  "Signal_vfzg" : 0,
-  "Signal_gangi" : 0,
-  "Signal_B_brems" : 0
-  
+  "InhibitorType3_UnlockState":0,
+  "InhibitorType2_UnlockState":0,
+  "InhibitorType0_UnlockState":0,
+  "InhibitorType1_UnlockState":0,
+  "InhibitorType4_UnlockState":0
 }
