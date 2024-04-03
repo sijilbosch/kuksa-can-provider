@@ -49,7 +49,7 @@ RUN pyinstaller --collect-data kuksa_client --hidden-import can.interfaces.socke
 WORKDIR /dist
 
 COPY dbcfeeder.py /dist/
-RUN staticx dbcfeeder run-exe
+RUN staticx dbcfeeder.py run-exe
 
 WORKDIR /data
 COPY ./config/* ./config/
