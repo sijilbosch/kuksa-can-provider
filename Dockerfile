@@ -49,7 +49,6 @@ RUN pyinstaller --hidden-import can.interfaces.socketcan --clean -F -s dbcfeeder
 
 WORKDIR /dist
 
-COPY dbcfeeder /dist/
 RUN staticx dbcfeeder run-exe
 
 WORKDIR /data
@@ -72,6 +71,9 @@ COPY --from=builder /data/ ./
 # pyinstaller doesn't pick up transient libz dependency, so copying it manually
 #COPY --from=builder /usr/lib/*-linux-gnu/libz.so.1 /lib/
 #COPY --from=builder ./workspace/dist/run-exe /dist/
+
+WORKDIR /tmp
+WORKDIR /dist
 
 ENV PATH="/dist:$PATH"
 
