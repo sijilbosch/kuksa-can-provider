@@ -30,6 +30,15 @@ RUN apt update && apt -y install \
     python3-dev \
     && rm -rf /var/lib/apt/lists/*
 
+# Remove this installation for Arm64 once staticx has a prebuilt wheel for Arm64
+RUN /bin/bash -c 'set -ex && \
+    ARCH=`uname -m` && \
+    if [ "$ARCH" == "aarch64" ]; then \
+    echo "ARM64" && \
+    apt-get install -y gcc && \
+    pip3 install --no-cache-dir scons; \
+    fi'
+
 RUN pip install --upgrade --no-cache-dir pip build pyinstaller
 RUN pip3 install --no-cache-dir patchelf==0.17.0.0 
 RUN pip3 install --no-cache-dir staticx 
