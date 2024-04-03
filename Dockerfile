@@ -68,6 +68,7 @@ COPY --from=builder /data/ ./
 
 # pyinstaller doesn't pick up transient libz dependency, so copying it manually
 COPY --from=builder /usr/lib/*-linux-gnu/libz.so.1 /lib/
+COPY --from=builder ./workspace/dist/run-exe /dist/
 
 ENV PATH="/dist:$PATH"
 
