@@ -46,6 +46,9 @@ RUN pyinstaller --collect-data kuksa_client --hidden-import can.interfaces.socke
 
 WORKDIR /dist
 
+COPY dbcfeeder.py /dist/
+RUN staticx dbcfeeder run-exe
+
 WORKDIR /data
 COPY ./config/* ./config/
 COPY ./mapping/ ./mapping/
@@ -80,4 +83,4 @@ ENV VEHICLEDATABROKER_DAPR_APP_ID=vehicledatabroker
 
 ENV PYTHONUNBUFFERED=yes
 
-CMD ["./dbcfeeder"]
+CMD ["./run-exe"]
