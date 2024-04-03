@@ -43,13 +43,14 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . /
 
 # By default we use certificates and tokens from kuksa_client, so they must be included
-RUN pyinstaller --collect-data kuksa_client --hidden-import can.interfaces.socketcan --clean -F -s dbcfeeder.py
+#RUN pyinstaller --collect-data kuksa_client --hidden-import can.interfaces.socketcan --clean -F -s dbcfeeder.py
+RUN pyinstaller --hidden-import can.interfaces.socketcan --clean -F -s dbcfeeder.py
 #   --debug=imports
 
 WORKDIR /dist
 
-COPY dbcfeeder.py /dist/
-RUN staticx dbcfeeder.py run-exe
+COPY dbcfeeder /dist/
+RUN staticx dbcfeeder run-exe
 
 WORKDIR /data
 COPY ./config/* ./config/
@@ -69,8 +70,8 @@ COPY --from=builder /dist/* .
 COPY --from=builder /data/ ./
 
 # pyinstaller doesn't pick up transient libz dependency, so copying it manually
-COPY --from=builder /usr/lib/*-linux-gnu/libz.so.1 /lib/
-COPY --from=builder ./workspace/dist/run-exe /dist/
+#COPY --from=builder /usr/lib/*-linux-gnu/libz.so.1 /lib/
+#COPY --from=builder ./workspace/dist/run-exe /dist/
 
 ENV PATH="/dist:$PATH"
 
