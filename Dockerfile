@@ -30,6 +30,7 @@ RUN apt update && apt -y install \
     && rm -rf /var/lib/apt/lists/*
 
 RUN pip install --upgrade --no-cache-dir pip build pyinstaller
+RUN pip3 install --no-cache-dir staticx 
 
 COPY requirements.txt /
 
