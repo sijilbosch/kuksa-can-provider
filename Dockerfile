@@ -27,6 +27,7 @@ RUN apt update && apt -y install \
     binutils \
     git \
     gcc \
+    pip3 \
     && rm -rf /var/lib/apt/lists/*
 
 RUN pip install --upgrade --no-cache-dir pip build pyinstaller
