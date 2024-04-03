@@ -56,7 +56,7 @@ COPY ./*.dbc ./candump*.log ./*.json ./
 # For development add :debug like this
 # FROM gcr.io/distroless/base-debian12:debug  to get a busybox shell as well
 #FROM gcr.io/distroless/base-debian12
-FROM FROM scratch
+FROM scratch
 
 WORKDIR /dist
 
